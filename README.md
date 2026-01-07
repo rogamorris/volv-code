@@ -30,13 +30,13 @@ New project? Even better—start with discipline from day one.
 
 → See [Prerequisites](VISION.md#prerequisites) for details.
 
-**2. Copy CLAUDE.md to your project root**
+**2. Copy the template to your project root**
 
 ```bash
-curl -o CLAUDE.md https://raw.githubusercontent.com/YOUR_ORG/volv-code/main/CLAUDE.md
+curl -o CLAUDE.md https://raw.githubusercontent.com/rogamorris/volv-code/main/templates/CLAUDE.md
 ```
 
-Or just copy the contents manually.
+Or copy the contents of [`templates/CLAUDE.md`](templates/CLAUDE.md) manually.
 
 **3. Start a Claude Code session**
 

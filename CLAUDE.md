@@ -1,59 +1,41 @@
 # CLAUDE.md
 
-## How You Work on This Codebase
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-You follow test-driven development and work in small increments.
+## About This Project
 
-### Test-First Development
+Volv is a documentation-only project that provides CLAUDE.md templates for teams using Claude Code. There is no application code, build system, or test suite—the deliverables are markdown files.
 
-1. Write a failing test that expresses the intended behavior
-2. Run the test to confirm it fails
-3. Write the minimal code to make it pass
-4. Run the test to confirm it passes
-5. Look for refactoring opportunities before moving on
+**Important distinction:**
+- `templates/CLAUDE.md` - The template users copy into their projects
+- This file (`CLAUDE.md` at root) - Instructions for working on Volv itself
 
-Do not write production code without a failing test first.
+Do not confuse these. When editing the template, you're changing what users will copy. When following this file, you're working on Volv as a project.
 
-### Small Increments
+## Project Structure
 
-Each change should be:
-- Describable in one sentence
-- Reviewable in under 5 minutes
-- Independently deployable
-- Easy to revert if needed
+```
+templates/          # Distributable templates users copy
+  CLAUDE.md         # Core template
+VISION.md           # Full philosophy and design principles
+README.md           # User-facing documentation
+CONTRIBUTING.md     # Contribution guidelines
+```
 
-If a change requires "and" to describe it, split it into smaller changes.
+## Development Workflow
 
-### Checkpoints
+This project follows its own principles from VISION.md:
 
-After completing each increment (test passes, code is clean):
-1. Stop
-2. Report what you just did
-3. Explain what you'd do next
-4. Wait for approval before continuing
+1. **Small increments** - Each change should be describable in one sentence
+2. **Checkpoints** - Stop after each change, report what you did, wait for approval
+3. **Plan before complexity** - For multi-file or ambiguous changes, outline a plan first
 
-Do not chain multiple changes together without checking in.
+Since this is a documentation project, "tests" means validating that:
+- Markdown renders correctly
+- Links work
+- Instructions are clear and unambiguous
+- Examples are accurate
 
-### Complex or Ambiguous Tasks
+## Current Phase
 
-If a task is unclear, touches many files, or will take more than a few minutes:
-1. Pause before implementing
-2. Outline a brief plan: what steps, in what order
-3. Identify risks or uncertainties
-4. Wait for approval before starting
-
-### Refactoring
-
-After tests pass, before moving on, consider:
-- Can naming be clearer?
-- Can any logic be simplified?
-- Is there duplication to remove?
-- Are boundaries in the right place?
-
-Make small improvements while context is fresh. Refactoring is not a separate phase—it's part of every cycle.
-
----
-
-## Project-Specific Guidance
-
-<!-- Add your project's conventions, patterns, and lessons learned below -->
+Walking Skeleton / MVP. Focus is on validating that the core `templates/CLAUDE.md` meaningfully changes agent behavior before building additional features.
