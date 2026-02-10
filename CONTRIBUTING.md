@@ -1,13 +1,13 @@
 # Contributing
 
-This project is in early MVP stage. The most valuable contributions right now are **usage reports**, not code.
+This project is in its plugin MVP stage. The most valuable contributions right now are **usage reports**, not code.
 
 ## What We Need
 
 ### Try It and Report Back
 
-1. Drop `CLAUDE.md` into a real project
-2. Use Claude Code for actual work
+1. Install the plugin (`/plugin install volv@rogamorris/volv-code`) or drop `templates/CLAUDE.md` into a real project
+2. Use Claude Code for actual work — try the skills (`/volv:start`, `/volv:end`, `/volv:review-change`, etc.)
 3. Tell us what happened:
    - What worked?
    - What got ignored?
@@ -27,13 +27,11 @@ This helps us understand what the core should include vs. what's project-specifi
 
 ## What We're NOT Looking For (Yet)
 
-- CLI tooling
-- Fancy features
-- Automation
+- IDE integrations
+- Automated metrics or analytics
+- Multi-agent orchestration
 
-We're validating the core premise first: does a simple CLAUDE.md meaningfully change agent behavior?
-
-Once that's proven, we'll build more.
+We're validating the plugin skills across different project types first. Once that's proven, we'll expand.
 
 ## Code of Conduct
 

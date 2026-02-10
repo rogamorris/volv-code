@@ -1,36 +1,34 @@
 # Volv
 
-A minimal workflow system for Claude Code. Drop one file into your repo and get disciplined, test-driven AI assistance.
+Disciplined workflow skills for Claude Code — session lifecycle, code review, and test-driven development practices.
 
 ---
 
 ## What This Is
 
-A single `CLAUDE.md` file that changes how Claude Code works on your codebase:
+A Claude Code plugin that gives your agent disciplined engineering practices:
 
-- Writes tests before production code
-- Works in small, reviewable increments  
-- Stops at checkpoints instead of producing walls of code
-- Asks before making design decisions
+- **Session management** — structured start and end to every work session
+- **Code review** — Dave Farley-style assessment of changes, plans, and codebases
+- **Test-driven workflow** — a CLAUDE.md template encoding TDD, small increments, and checkpoints
 
-No dependencies. No CLI. Just markdown.
+Install once, use across all your projects.
 
 ---
 
 ## Quick Start
 
-**1. Check prerequisites**
+### As a plugin (recommended)
 
-This works best if your codebase has:
-- An automated test suite
-- CI pipeline
-- Ability to deploy frequently (at least weekly)
+```
+/plugin install volv@rogamorris/volv-code
+```
 
-New project? Even better—start with discipline from day one.
+This gives you all five skills, available in any project via the `/volv:` prefix.
 
-→ See [Prerequisites](VISION.md#prerequisites) for details.
+### As a standalone template
 
-**2. Copy the template to your project root**
+If you just want the TDD workflow without the plugin:
 
 ```bash
 curl -o CLAUDE.md https://raw.githubusercontent.com/rogamorris/volv-code/main/templates/CLAUDE.md
@@ -38,26 +36,42 @@ curl -o CLAUDE.md https://raw.githubusercontent.com/rogamorris/volv-code/main/te
 
 Or copy the contents of [`templates/CLAUDE.md`](templates/CLAUDE.md) manually.
 
-**3. Start a Claude Code session**
+**Prerequisites** for either approach:
+- An automated test suite (or willingness to start one)
+- CI pipeline
+- Ability to deploy frequently
 
-The agent will now follow the practices encoded in CLAUDE.md.
-
-**4. Test it**
-
-Try: *"Add a function that validates email addresses"*
-
-You should observe:
-- Claude writes a failing test first
-- Claude implements minimally to pass
-- Claude stops and checks in before moving on
-
-If it barrels through without stopping, say: *"Follow the checkpoint process in CLAUDE.md"*
+> See [Prerequisites](VISION.md#prerequisites) for details.
 
 ---
 
-## What's in CLAUDE.md
+## Skills
 
-The file encodes a small set of practices:
+### `/volv:start` — Session setup
+
+Sets up a working session with git worktrees. Shows repo state, pulls main if needed, and helps you create a worktree for new work or stay on the current branch.
+
+### `/volv:end` — Session wrap-up
+
+Wraps up cleanly: commits uncommitted work, pushes to remote, offers PR creation, and handles worktree cleanup. Nothing gets lost.
+
+### `/volv:review-change` — Change review
+
+Reviews recent code changes (the last commit or staged diff) through the lens of Dave Farley's Modern Software Engineering. Evaluates locality, comprehensibility, test quality, accidental complexity, and reversibility.
+
+### `/volv:review-plan` — Plan review
+
+Reviews a plan with the central question: "Is this the smallest plan that moves us forward and lets us learn something?" Looks for scope creep, premature abstraction, and coupled steps.
+
+### `/volv:review-codebase` — Full codebase review
+
+Comprehensive codebase review across seven dimensions. Produces a dimensional assessment and a prioritized refactoring file in `docs/tech-debt/` that fresh Claude Code sessions can work through independently.
+
+---
+
+## The CLAUDE.md Template
+
+The standalone template (`templates/CLAUDE.md`) encodes a small set of practices:
 
 | Practice | What It Does |
 |----------|--------------|
@@ -66,11 +80,9 @@ The file encodes a small set of practices:
 | Checkpoints | Stop after each increment, report what happened, wait for approval |
 | Plan before complexity | For ambiguous or multi-file tasks, write a plan first |
 
-These practices compound. They feel slower at first but produce faster, more reliable results—because you spend less time debugging and reverting.
+These practices compound. They feel slower at first but produce faster, more reliable results — because you spend less time debugging and reverting.
 
----
-
-## Customizing
+### Customizing the template
 
 CLAUDE.md is yours. Edit it freely.
 
@@ -81,14 +93,6 @@ CLAUDE.md is yours. Edit it freely.
 - Use pytest for all tests
 - Follow existing naming conventions in /src
 - Database migrations require approval before running
-```
-
-**Add lessons learned:**
-```markdown
-## Patterns to Follow
-
-- Always validate user input at API boundaries
-- Use UTC for all timestamps internally
 ```
 
 **Remove what doesn't fit:**
@@ -109,22 +113,22 @@ Key principles:
 - Continuous refactoring, not periodic cleanup
 - Evolutionary architecture over upfront design
 
-→ Read the full [Vision](VISION.md) for the complete philosophy.
+> Read the full [Vision](VISION.md) for the complete philosophy.
 
 ---
 
 ## Status
 
-**Phase:** MVP / Walking Skeleton
+**Phase:** Plugin MVP
 
-This is early. We're testing whether a minimal CLAUDE.md meaningfully changes agent behavior in real codebases.
+The core CLAUDE.md template has been validated in production codebases. The plugin structure packages battle-tested skills for broader distribution via Claude Code's plugin system.
 
 What we're learning:
-- Which instructions the agent follows reliably
-- Which get ignored or misinterpreted  
-- What's missing
+- Which skills provide the most value across different project types
+- How session lifecycle management (start/end) changes work quality
+- Whether review skills meaningfully improve code and plan quality
 
-→ See [Current State](VISION.md#current-state) for details.
+> See [Current State](VISION.md#current-state) for details.
 
 ---
 
@@ -137,23 +141,7 @@ The most useful contributions right now:
 - "I tried this and Y was ignored"
 - "I needed to add Z for my context"
 
-Open an issue or PR. 
-
----
-
-## Future
-
-The vision is a modular system where you can adopt individual skills:
-
-```bash
-# Not built yet—illustrative
-npx volv add skill:tdd-strict
-npx volv add skill:capture-learning
-```
-
-But we're not building that until the core CLAUDE.md proves valuable. Walking skeleton first.
-
-→ See [Vision](VISION.md) for the full roadmap.
+Open an issue or PR.
 
 ---
 

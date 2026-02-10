@@ -1,0 +1,11 @@
+{
+  "name": "volv",
+  "description": "Disciplined workflow skills for Claude Code — session lifecycle, code review, and test-driven development practices.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Roger Morris"
+  },
+  "repository": "https://github.com/rogamorris/volv-code",
+  "license": "MIT",
+  "skills": "./skills/"
+}
