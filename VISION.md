@@ -318,17 +318,17 @@ We'll follow our own principles:
 
 ## Current State
 
-**Phase:** Walking Skeleton
+**Phase:** Plugin MVP
 
-**Focus:** Validate that a minimal CLAUDE.md changes agent behavior in a meaningful way.
+The core CLAUDE.md template has been validated in production codebases. The project is now packaged as a Claude Code plugin with five workflow skills: session lifecycle (start/end) and Dave Farley-style review (review-change, review-plan, review-codebase).
 
-**Next milestone:** Test in telecom BSS codebase with 12 contributors. Observe whether:
-- Agent follows TDD discipline
-- Agent stops at checkpoints
-- Increment size feels appropriate
-- Any instructions get ignored or misinterpreted
+**Focus:** Validate that the plugin skills provide value across different project types and team sizes.
 
-**Success criteria for this milestone:** At least one team member says "this made Claude easier to work with" AND we have a concrete list of what to improve.
+**What we're learning:**
+- Which skills provide the most value across different project types
+- How session lifecycle management (start/end) changes work quality
+- Whether review skills meaningfully improve code and plan quality
+- What's missing that teams need to add themselves
 
 ---
 
@@ -350,6 +350,7 @@ We'll follow our own principles:
 
 | Date | Change |
 |------|--------|
+| 2026-02-10 | Update current state to reflect plugin MVP phase |
 | 2025-01-07 | Initial vision document |
 
 ---

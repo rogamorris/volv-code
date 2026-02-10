@@ -21,9 +21,9 @@ Do not confuse these. When editing skills or the template, you're changing what 
 skills/               # Plugin skills
   start/SKILL.md      # Session setup with git worktrees
   end/SKILL.md        # Session wrap-up
-  review-change/      # Code change review
-  review-plan/        # Plan review
-  review-codebase/    # Full codebase review
+  review-change/SKILL.md  # Code change review
+  review-plan/SKILL.md    # Plan review
+  review-codebase/SKILL.md # Full codebase review
 templates/
   CLAUDE.md           # Standalone template (for non-plugin use)
 VISION.md             # Full philosophy and design principles
